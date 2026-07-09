@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Personlige referansefoto (ikke brukt av nettsiden, holdes utenfor repoet)
+Referansebilder/
+
+# Arkiv over tidligere bildeversjoner (lastes ikke opp til GitHub)
+ansattbilder/Tidligere versjoner/

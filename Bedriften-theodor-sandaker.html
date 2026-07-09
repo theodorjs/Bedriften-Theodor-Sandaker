@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theodor Sandaker – Om oss</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:   #faf4ea;
+  --warm:    #f0e0c8;
+  --sand:    #d9c4a4;
+  --charcoal:#1a1410;
+  --mid:     #4e3d30;
+  --light:   #8a7060;
+  --accent:  #e03d10;
+  --accent2: #2d8c50;
+  --accent3: #1a4faa;
+  --accent4: #c4860a;
+  --nav-h:   64px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── NOISE ── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(253,248,242,.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--charcoal);
+  letter-spacing: -.01em;
+}
+.nav-logo em { font-style: italic; color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: .02em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--charcoal); color: #fff !important; }
+
+/* ── HERO ── */
+#om {
+  position: relative;
+  text-align: center;
+  padding: 90px 24px 56px;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .22;
+  animation: drift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.blob.a { width:580px;height:580px;background:var(--accent);  top:-180px;left:-140px; }
+.blob.b { width:440px;height:440px;background:var(--accent3); bottom:-120px;right:-80px; animation-delay:-6s; }
+.blob.c { width:340px;height:340px;background:var(--accent2); top:30px;right:6%; animation-delay:-11s; }
+.blob.d { width:260px;height:260px;background:var(--accent4); top:50%;left:40%; animation-delay:-4s; }
+
+@keyframes drift {
+  from { transform:translate(0,0) scale(1); }
+  to   { transform:translate(28px,18px) scale(1.07); }
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp .55s .1s ease forwards;
+}
+
+h1.company {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(54px, 9vw, 112px);
+  font-weight: 700;
+  line-height: .93;
+  letter-spacing: -.025em;
+  opacity: 0;
+  animation: fadeUp .65s .25s ease forwards;
+}
+h1.company em { font-style: italic; color: var(--accent); }
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.8vw, 27px);
+  color: var(--mid);
+  margin-top: 22px;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeUp .65s .4s ease forwards;
+}
+
+.divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  margin: 36px auto 0;
+  border-radius: 2px;
+  opacity: 0;
+  animation: fadeUp .5s .55s ease forwards;
+}
+
+/* ── INTRO ── */
+#intro {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 52px 36px 80px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp .7s .7s ease forwards;
+}
+
+#intro p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--mid);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+#intro p:last-child { margin-bottom: 0; }
+#intro strong { color: var(--charcoal); font-weight: 700; }
+
+/* ── TEAM ── */
+#teamet {
+  padding: 0 28px 100px;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 52px;
+  opacity: 0;
+  animation: fadeUp .5s .9s ease forwards;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(408px, 1fr));
+  gap: 64px 32px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .5s ease forwards;
+}
+
+.avatar-ring {
+  width: 408px;
+  height: 408px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--sand) 0%, #fff 60%, var(--sand) 100%);
+  margin-bottom: 22px;
+  transition: transform .3s ease;
+}
+.card:hover .avatar-ring { transform: translateY(-6px); }
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 150px;
+  border: 3px solid rgba(255,255,255,.8);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.08);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.25;
+  margin-bottom: 10px;
+  letter-spacing: .06em;
+}
+.card-desc {
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 380px;
+}
+
+/* card stagger */
+.card:nth-child(1)  { animation-delay:1.00s }
+.card:nth-child(2)  { animation-delay:1.06s }
+.card:nth-child(3)  { animation-delay:1.12s }
+.card:nth-child(4)  { animation-delay:1.18s }
+.card:nth-child(5)  { animation-delay:1.24s }
+.card:nth-child(6)  { animation-delay:1.30s }
+.card:nth-child(7)  { animation-delay:1.36s }
+.card:nth-child(8)  { animation-delay:1.42s }
+.card:nth-child(9)  { animation-delay:1.48s }
+.card:nth-child(10) { animation-delay:1.54s }
+.card:nth-child(11) { animation-delay:1.60s }
+.card:nth-child(12) { animation-delay:1.66s }
+.card:nth-child(13) { animation-delay:1.72s }
+.card:nth-child(14) { animation-delay:1.78s }
+.card:nth-child(15) { animation-delay:1.84s }
+.card:nth-child(16) { animation-delay:1.90s }
+.card:nth-child(17) { animation-delay:1.96s }
+.card:nth-child(18) { animation-delay:2.02s }
+.card:nth-child(19) { animation-delay:2.08s }
+.card:nth-child(20) { animation-delay:2.14s }
+.card:nth-child(21) { animation-delay:2.20s }
+.card:nth-child(22) { animation-delay:2.26s }
+.card:nth-child(23) { animation-delay:2.32s }
+.card:nth-child(24) { animation-delay:2.38s }
+.card:nth-child(25) { animation-delay:2.44s }
+.card:nth-child(26) { animation-delay:2.50s }
+.card:nth-child(27) { animation-delay:2.56s }
+.card:nth-child(28) { animation-delay:2.62s }
+.card:nth-child(29) { animation-delay:2.68s }
+.card:nth-child(30) { animation-delay:2.74s }
+
+/* ── FOOTER ── */
+#kontakt {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 64px 40px 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto 52px;
+}
+
+.footer-brand h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.footer-brand h2 em { color: var(--accent); font-style: italic; }
+.footer-brand p {
+  font-size: 13px;
+  color: rgba(253,248,242,.5);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 260px;
+}
+
+.footer-col h3 {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(253,248,242,.4);
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a {
+  font-size: 13px;
+  color: rgba(253,248,242,.7);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color .2s;
+}
+.footer-col ul a:hover { color: var(--accent); }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(253,248,242,.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(253,248,242,.3);
+}
+
+/* ── UTILS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* image placeholder note */
+.img-note {
+  display:block;
+  font-size:10px;
+  color:var(--light);
+  letter-spacing:.04em;
+  margin-top:4px;
+  font-style:italic;
+}
+
+@media(max-width:860px){
+  nav { padding: 0 20px; }
+  .nav-links { gap: 18px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:600px){
+  .nav-links { display: none; }
+  .team-grid { grid-template-columns: 1fr; }
+  .avatar-ring {
+    width: min(82vw, 408px);
+    height: min(82vw, 408px);
+  }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction:column; gap:8px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Theodor <em>Sandaker</em></div>
+  <ul class="nav-links">
+    <li><a href="#tjenester">Tjenester</a></li>
+    <li><a href="#intro">Hva vi gjør</a></li>
+    <li><a href="#teamet">Teamet</a></li>
+    <li><a href="#om">Om oss</a></li>
+    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="om">
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="blob c"></div>
+  <div class="blob d"></div>
+  <div class="badge">Grunnlagt 1990 · Norge</div>
+  <h1 class="company">Theodor <em>Sandaker</em></h1>
+  <p class="tagline">«Livet er sammensatt. Det er vi også.»</p>
+  <div class="divider"></div>
+</section>
+
+<!-- ── INTRO ── -->
+<section id="intro">
+  <p>
+    Theodor Sandaker er en <strong>tverrfaglig, høyintensiv og tidvis ubegripelig effektiv virksomhet</strong>
+    med kompetanse innen formidling, relasjonsarbeid, problemløsning, krisehåndtering, fredsmegling,
+    kreativ produksjon, metareflektiv interrelasjonell identitetsutvikling og praktisk gjennomføring.
+  </p>
+  <p>
+    Vi dekker et bredt spekter av fagområder, ansvar og interessefelt, og tar på oss
+    <strong>både små og store oppdrag</strong> – som regel samtidig.
+  </p>
+  <p>
+    Med <strong>kort behandlingstid, høy fleksibilitet</strong> og kort opplæringstid i nye ferdigheter,
+    leverer vi velprøvde og helt nye løsninger innen alt fra pedagogisk utvikling og kommunikasjon
+    til reparasjoner, konflikthåndtering, logistikk, emosjonell førstehjelp og plutselige arrangementer.
+  </p>
+  <p>
+    Vi er stolte av å være en <strong>liten organisasjon med usedvanlig mange avdelinger.</strong>
+  </p>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="teamet">
+  <p class="section-label">MØT TEAMET</p>
+  <div class="team-grid" id="team-grid"></div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="kontakt">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h2>Theodor <em>Sandaker</em></h2>
+      <p>Livet er sammensatt. Det er vi også.<br><br>
+      En liten organisasjon med usedvanlig mange avdelinger.</p>
+    </div>
+    <div class="footer-col" id="tjenester">
+      <h3>Tjenester</h3>
+      <ul>
+        <li><a href="#">Formidling</a></li>
+        <li><a href="#">Kommunikasjon</a></li>
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Rådgivning</a></li>
+        <li><a href="#">Krisehåndtering</a></li>
+        <li><a href="#">Kurs og foredrag</a></li>
+        <li><a href="#">Alle tjenester →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Selskapet</h3>
+      <ul>
+        <li><a href="#om">Om oss</a></li>
+        <li><a href="#teamet">Teamet</a></li>
+        <li><a href="#">Portefølje</a></li>
+        <li><a href="#">Verdier</a></li>
+        <li><a href="#">Metode</a></li>
+        <li><a href="#">Årsrapport</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Kontakt</h3>
+      <ul>
+        <li><a href="#">theodor@sandaker.no</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Send melding</a></li>
+        <li><a href="#">Book møte</a></li>
+        <li><a href="#">Personvern</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Theodor Sandaker. Alle rettigheter forbeholdt.</span>
+    <span>Moss, Norge</span>
+  </div>
+</footer>
+
+<script>
+const employees = [
+  { title:"Arrangør",                     emoji:"📅", bg:"#ffd6c2", image:"ansattbilder/arrangor.png",
+    desc:"Noen ganger skal muligheter finnes på tvers av tid og rom, kalendere skal synkroniseres, lokaler skal bookes og mennesker skal møtes, snacks skal skaffes og underholdningsinnslag skal koordineres. Helst i går." },
+  { title:"Diplomat",                     emoji:"🌍", bg:"#a8e8e8", image:"ansattbilder/diplomat.png",
+    desc:"Formulerer vanskelige budskap på en sånn måte at folk fortsatt kan være i samme rom etterpå." },
+  { title:"Dommer",                       emoji:"⚖️", bg:"#ece8a8", image:"ansattbilder/dommer.png",
+    desc:"Når det er litt ekstra viktig å finne ut hvem som faktisk startet, hvem som har skylda og hva som kan være en passende… konsekvens." },
+  { title:"Dørvakt",                      emoji:"🚪", bg:"#dcd4cc", image:"ansattbilder/dorvakt.png",
+    desc:"Når noen eller noe må passes litt ekstra på." },
+  { title:"Etterforsker",                 emoji:"🔍", bg:"#a8bcec", image:"ansattbilder/etterforsker.png",
+    desc:"Det finnes like mange versjoner av sannheten som det finnes involverte. Med meg blir det én til." },
+  { title:"Familierådgiver",              emoji:"👨‍👩‍👦", bg:"#f8c4dc", image:"ansattbilder/familieradgiver.png",
+    desc:"Megler i saker der alle både har litt rett og litt behov for å roe seg." },
+  { title:"Filosof",                      emoji:"💭", bg:"#d8c8f0", image:"ansattbilder/filosof.png",
+    desc:"Stiller spørsmål ved meningen med alt, inkludert hvorfor vi står akkurat her." },
+  { title:"Foredragsholder",              emoji:"🎤", bg:"#ffc2c2", image:"ansattbilder/foredragsholder.png",
+    desc:"Kan snakke engasjert om nesten hva som helst – spesielt hvis det er en digresjon." },
+  { title:"Forelder",                     emoji:"🏠", bg:"#ffe8a0", image:"ansattbilder/forelder.png",
+    desc:"Har med ekstra jakke og solkrem, minner om matpakke og vet hvor sekken egentlig ligger." },
+  { title:"Forfatter",                    emoji:"✍️", bg:"#fce8a0", image:"ansattbilder/forfatter.png",
+    desc:"Produserer tekst, struktur og overtenkning i samme dokument." },
+  { title:"Formidlingsansvarlig",        emoji:"📢", bg:"#ffd6c2", image:"ansattbilder/formidlingsansvarlig.png",
+    desc:"Gjør kompliserte ting forståelige, helst med en metafor og tre tavletegninger." },
+  { title:"Forsker",                      emoji:"🔬", bg:"#bcecb0", image:"ansattbilder/forsker.png",
+    desc:"Går i dybden på livets små og store mysterier med uendelig nysgjerrighet og hypotetisk deduktiv metode." },
+  { title:"Fotograf",                     emoji:"📷", bg:"#c8d4dc", image:"ansattbilder/fotograf.png",
+    desc:"Dokumenterer øyeblikket før noen rekker å spørre om dette egentlig må fotograferes." },
+  { title:"Gartner",                      emoji:"🌱", bg:"#a8e8a8", image:"ansattbilder/gartner.png",
+    desc:"Dyrker trivsel, belgvekster og møkk under neglene. Finner læring under enhver stein." },
+  { title:"Grafisk designer",             emoji:"🎨", bg:"#e8c4f8", image:"ansattbilder/grafisk-designer.png",
+    desc:"Tar høyde for at mennesker skal se produktet." },
+  { title:"Helsesykepleier",              emoji:"🩺", bg:"#bcd9f8", image:"ansattbilder/helsesykepleier.png",
+    desc:"Foretar raske vurderinger av vondter, utslett, magefølelse og «trenger dette egentlig plaster?»" },
+  { title:"Influencer",                   emoji:"📱", bg:"#ffc8e0", image:"ansattbilder/influencer.png",
+    desc:"Produserer innhold med høy energi, lav terskel og en urovekkende naturlig åpning til kamera." },
+  { title:"Ingeniør",                     emoji:"⚙️", bg:"#c4cce0", image:"ansattbilder/ingenior.png",
+    desc:"Bygger løsninger som fungerer, selv om ingen helt forstår hvorfor." },
+  { title:"Interaksjonsdesigner",         emoji:"🖱️", bg:"#b8e8cc", image:"ansattbilder/interaksjonsdesigner.png",
+    desc:"Får systemer, folk og skjemaer til å oppføre seg litt mer menneskelig." },
+  { title:"Kommunikasjonsansvarlig avdeling barn", emoji:"💬", bg:"#bcd9f8", image:"ansattbilder/kommunikasjonsansvarlig-barn.png",
+    desc:"Finner retningen i blandede signaler og dobbeltbetydninger. Bygger broer mellom mennesker som egentlig mener det samme." },
+  { title:"Kommunikasjonsansvarlig avdeling voksen", emoji:"📡", bg:"#d8d4c8", image:"ansattbilder/kommunikasjonsansvarlig-voksen.png",
+    desc:"Formidler historier og hendelser så objektivt som mulig, og har hovedansvar for kommunikasjonen mellom flere instanser." },
+  { title:"Kurator",                      emoji:"🖼️", bg:"#f0c4e8", image:"ansattbilder/kurator.png",
+    desc:"Håndplukker innhold tilpasset enhver situasjon, for å sørge for maksimalt utbytte." },
+  { title:"Kursholder i giraffspråket",   emoji:"🦒", bg:"#ffe8a0", image:"ansattbilder/kursholder-giraffspraket.png",
+    desc:"Lærer deg å snakke om deg selv, så du kan si noe om andre." },
+  { title:"Motivasjonspsykolog",          emoji:"💪", bg:"#a8e8d4", image:"ansattbilder/motivasjonspsykolog.png",
+    desc:"Spesialist på å få deg til å skjønne at du egentlig har skikkelig lyst." },
+  { title:"Oppdrager avdeling barn",      emoji:"☕", bg:"#e8d0b8", image:"ansattbilder/oppdrager-barn.png",
+    desc:"Når man ikke har fått alle rammene på plass hjemme, kan en barneoppdrager være kjekt å ha." },
+  { title:"Oppdrager avdeling voksen",    emoji:"☝️", bg:"#d4d0cc", image:"ansattbilder/oppdrager-voksen.png",
+    desc:"Når budskapet ikke når helt inn, kan en voksenoppdrager være kjekt å ha." },
+  { title:"Psykolog",                     emoji:"🧠", bg:"#dcc4f8", image:"ansattbilder/psykolog.png",
+    desc:"Lytter, sorterer og stiller spørsmål som gjør at du både skjønner mer, men også enda mindre." },
+  { title:"Reparatør",                    emoji:"🔧", bg:"#d4d0cc", image:"ansattbilder/reparator.png",
+    desc:"Reparerer ting basert på YouTube, stahet og en under middels forståelse av egne evner." },
+  { title:"Renholder",                    emoji:"🧽", bg:"#d6ecf8", image:"ansattbilder/renholder.png",
+    desc:"Vasker alle overflater rene for spor etter hverdagen, sykdom, matrester, tusjtegninger. Kan også bruke mopp for å redde dagen, når en 10-liters-bøtte med vann har veltet utover gulvet..." },
+  { title:"Risikoanalytiker",             emoji:"📊", bg:"#d4b8f0", image:"ansattbilder/risikoanalytiker.png",
+    desc:"Lever i fremtidens potensielle uhell og feiltrinn. Stiller alltid beredt med førstehjelpsmapper, ekstra solkrem, dopapir, ekstra vannflasker, hjelm til utlån og refleksvest." },
+  { title:"Rådgiver",                     emoji:"🗣️", bg:"#c8e4f0", image:"ansattbilder/radgiver.png",
+    desc:"Gir kloke råd med rolig stemme, tydelig blikk og en notatblokk full av ting ingen har bedt om." },
+  { title:"Sekretær",                     emoji:"📋", bg:"#f0e8a8", image:"ansattbilder/sekretaer.png",
+    desc:"Tar notater, lager systemer og mister dem i et nytt og bedre system." },
+  { title:"Sjåfør",                       emoji:"🚗", bg:"#a8d4f0", image:"ansattbilder/sjafor.png",
+    desc:"Transporterer mennesker, utstyr og stemninger mellom ulike geografiske og emosjonelle soner." },
+  { title:"Skuespiller",                  emoji:"🎬", bg:"#f8c0b8", image:"ansattbilder/skuespiller.png",
+    desc:"Kan skifte uttrykk, stemning og karakter raskere enn en timeplan kan endres." },
+  { title:"Speiderleder",                 emoji:"🏕️", bg:"#b8e8b8", image:"ansattbilder/speiderleder.png",
+    desc:"Kan lage aktivitet, struktur og mening av tau, pinner, barn og mildt kaos." },
+  { title:"Stand-up-komiker",             emoji:"🎭", bg:"#ffe0a0", image:"ansattbilder/stand-up-komiker.png",
+    desc:"Leverer uplanlagte kommentarer med varierende grad av sosial risiko." },
+  { title:"Trener",                       emoji:"🏋️", bg:"#e8e0b8", image:"ansattbilder/trener.png",
+    desc:"Har teknisk blikk, høy intensitet og et litt personlig forhold til progresjon." },
+  { title:"Venn",                         emoji:"🤝", bg:"#ffd6c2", image:"ansattbilder/venn.png",
+    desc:"Tilgjengelig for dype samtaler, rare memes og praktisk bistand på kort varsel." },
+  { title:"Verge",                        emoji:"🛡️", bg:"#b8c8f8", image:"ansattbilder/verge.png",
+    desc:"Holder oversikt over hvor du har lagt egne og andres eiendeler." },
+];
+
+const grid = document.getElementById('team-grid');
+employees.forEach(e => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="avatar-ring">
+      <div class="avatar" style="background:${e.bg}">
+        ${e.image ? `<img src="${e.image}" alt="${e.title}">` : e.emoji}
+      </div>
+    </div>
+    <div class="card-title">${e.title}</div>
+    <p class="card-desc">${e.desc}</p>
+  `;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
