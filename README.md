@@ -7,14 +7,14 @@ En statisk, humoristisk presentasjonsside for en fiktiv virksomhet der alle «an
 Prosjektet krever ingen byggesteg og ingen avhengigheter. Åpne hovedfilen direkte i nettleseren:
 
 ```
-Bedriften-theodor-sandaker.html
+index.html
 ```
 
 ## Struktur
 
 | Fil / mappe | Innhold |
 | --- | --- |
-| `Bedriften-theodor-sandaker.html` | Selve nettsiden. Ansatte defineres i `employees`-arrayen nederst i filen. |
+| `index.html` | Selve nettsiden. Ansatte defineres i `employees`-arrayen nederst i filen. |
 | `ansattbilder/` | Aktive ansattbilder som nettsiden bruker. |
 | `prosjektbeskrivelse.md` | Kompakt prosjektbeskrivelse. |
 | `handoff.md` | Statusoverlevering og arbeidsflyt. |

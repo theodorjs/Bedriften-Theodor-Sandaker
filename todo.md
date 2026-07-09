@@ -59,7 +59,7 @@ Sist oppdatert: 2026-07-09
 ## Viktige arbeidsregler
 
 - Når et eksisterende ansattbilde regenereres, flytt alltid aktiv bildefil til `ansattbilder/Tidligere versjoner/` før ny fil legges inn.
-- Nye ansattbilder skal lagres i `ansattbilder/` og kobles i `Bedriften-theodor-sandaker.html` med `image:"ansattbilder/<filnavn>.png"`.
+- Nye ansattbilder skal lagres i `ansattbilder/` og kobles i `index.html` med `image:"ansattbilder/<filnavn>.png"`.
 - Oppdater denne todo-listen når et nytt ansattbilde er ferdig.
 - Bruk referansebildene i `Referansebilder/` for ansikt/identitet når nye ansattbilder genereres.
 - Unnga tekst og logoer i genererte bilder med mindre brukeren ber eksplisitt om det.

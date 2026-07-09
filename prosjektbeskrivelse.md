@@ -10,11 +10,11 @@ Prosjektet er enkelt og flyttbart:
 
 - Ingen byggesteg.
 - Ingen pakkeavhengigheter.
-- Hovedsiden er `Bedriften-theodor-sandaker.html`.
+- Hovedsiden er `index.html`.
 - Bilder ligger relativt til HTML-filen i `ansattbilder/`.
 - Referansebilder for ansiktsidentitet ligger i `Referansebilder/`.
 
-Åpne `Bedriften-theodor-sandaker.html` direkte i nettleseren for å se nettsiden.
+Åpne `index.html` direkte i nettleseren for å se nettsiden.
 
 ## Innholdsstruktur
 
